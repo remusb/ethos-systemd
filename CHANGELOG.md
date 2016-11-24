@@ -1,6 +1,21 @@
+### 2016-11-22
+* Flight Director 1.10: support for x5u header keys
+* Disable logging config service on logging host by default.
+* Timeouts added to splunk-fluentd service to avoid docker pull timeouts in EU|AP regions.
+
+### 2016-11-18
+* BreakFix for aqua agent issue where aqua agent throws error:Cannot connect to the Docker daemon
+
+### 2016-11-10
+* Fix chronos-cleanup.sh bug that deletes old jobs that are still running
+
+### 2016-11-09
+* Flight Director update to add Chronos reconciliation on start up
+* Flight Director will mark orphaned deployments as "FAILED" automatically
+
 ### 2016-11-04
-* Fix Bug to make sure logs are forwarding to both security and splunkAAS splunk endpoints
-* Fix Bug where logging server forwarder fleet cleanup units submited Globally instead of locally
+* Fix bug to make sure logs are forwarding to both security and splunkAAS splunk endpoints
+* Fix bug where logging server forwarder fleet cleanup units submited globally instead of locally
 * Remove encryption of env variables from aqua
 
 ### 2016-10-31
@@ -8,9 +23,7 @@
 
 ### 2016-11-02
 * ETCD Auth
-
-### 2016-11-02
-* Flight Director fixes for creating DB and Maratyjon reconciliation on start up
+* Flight Director fixes for creating DB and Marathon reconciliation on start up
 * Sets Flight Director to use localhost for Mesos instead of buggy ELB
 * Removed optional environment variable from booster fleet
 

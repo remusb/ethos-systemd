@@ -25,6 +25,8 @@ fi
 /usr/bin/docker run \
   --name flight-director \
   --net='host' \
+  --privileged \
+  --userns=host \
   -e LOG_APP_NAME=flight-director \
   -e FD_API_SERVER_PORT=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/api-server-port` \
   -e FD_CHRONOS_MASTER=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/chronos-master` \
@@ -47,6 +49,7 @@ fi
   -e FD_MARATHON_MASTER=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/marathon-master` \
   -e FD_MESOS_MASTER=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/mesos-master` \
   -e AUTHORIZER_TYPE=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/authorizer-type` \
+  -e FD_AIRLOCK_PUBLIC_KEY_WHITELISTED_HOSTS=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/airlock-key-location-whitelist` \
   -e FD_IAMROLE_LABEL=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/iam-role-label` \
   -e FD_AIRLOCK_PUBLIC_KEY="`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/airlock-public-key`" \
   -e FD_MARATHON_MASTER_PROTOCOL=`/home/core/ethos-systemd/v1/lib/etcdauth.sh get /flight-director/config/marathon-master-protocol` \
